@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:digitaldetails.pt)"
+      "WebFetch(domain:digitaldetails.pt)",
+      "Bash(start index.html)"
     ]
   }
 }
