@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <url>
+    <loc>https://digitaldetails.pt/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://digitaldetails.pt/sobre.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://digitaldetails.pt/contacto.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://digitaldetails.pt/servicos/</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url><loc>https://digitaldetails.pt/servicos/web-design.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/seo.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/gestao-redes-sociais.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/branding.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/marketing-digital.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/desenvolvimento-web.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/criacao-conteudo.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/manutencao-websites.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <url><loc>https://digitaldetails.pt/servicos/formacao-empresarial.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/desenvolvimento-pessoal.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/mentoria-acompanhamento.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/inteligencia-emocional.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/lideranca-humanizada.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/comunicacao-soft-skills.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/alta-performance-saudavel.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/gestao-stress-burnout.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/produtividade-gestao-tempo.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/desenvolvimento-equipas.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/resiliencia-adaptabilidade.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+  <url><loc>https://digitaldetails.pt/servicos/bem-estar-corporativo.html</loc><changefreq>monthly</changefreq><priority>0.85</priority></url>
+
+  <url>
+    <loc>https://digitaldetails.pt/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url><loc>https://digitaldetails.pt/blog/como-evitar-burnout-empresarial.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://digitaldetails.pt/blog/impacto-inteligencia-emocional-equipas.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://digitaldetails.pt/blog/vantagens-desvantagens-trabalhar-sozinho.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://digitaldetails.pt/blog/empresas-modernas-investem-bem-estar.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://digitaldetails.pt/blog/soft-skills-competencia-valorizada.html</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+
+</urlset>

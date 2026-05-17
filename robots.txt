@@ -1,0 +1,10 @@
+# Digital Details — robots.txt
+# https://digitaldetails.pt
+
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /tmp/
+Disallow: /*.json$
+
+Sitemap: https://digitaldetails.pt/sitemap.xml
