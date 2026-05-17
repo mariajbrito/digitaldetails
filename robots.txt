@@ -3,8 +3,32 @@
 
 User-agent: *
 Allow: /
+Disallow: /.well-known/
 Disallow: /admin/
 Disallow: /tmp/
+Disallow: /api/
 Disallow: /*.json$
+Disallow: /*.env$
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Bloquear scrapers de IA agressivos (opcional — comentar se quiser indexação por LLMs)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
 
 Sitemap: https://digitaldetails.pt/sitemap.xml

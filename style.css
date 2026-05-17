@@ -1108,3 +1108,20 @@ p { margin: 0 0 1em; }
   }
   .fade-up { opacity: 1; transform: none; }
 }
+
+/* Honeypot anti-bot — invisível para humanos, irresistível para bots */
+.hp {
+  position: absolute !important;
+  left: -10000px !important;
+  top: auto !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Estados do form-msg */
+.form-msg.ok { color: var(--color-success); margin-top: 0.6rem; font-weight: 600; }
+.form-msg.err { color: var(--color-danger); margin-top: 0.6rem; font-weight: 600; }
+

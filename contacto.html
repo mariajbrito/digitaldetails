@@ -10,6 +10,11 @@
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#ffd600" />
 
+  <!-- Segurança (fallback caso headers HTTP não estejam aplicados) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self' https://wa.me; img-src 'self' data: https:; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self'; upgrade-insecure-requests" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="color-scheme" content="light" />
+
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="pt_PT" />
   <meta property="og:title" content="Contacto | Digital Details" />
@@ -109,7 +114,7 @@
             formulário ao lado e receberá resposta em menos de 24 horas em dias úteis.
           </p>
           <div style="display:flex; gap:0.6rem; flex-wrap:wrap; margin:1.5rem 0;">
-            <a href="https://wa.me/351968573903?text=Olá!%20Vim%20do%20website" class="btn btn-whatsapp" target="_blank" rel="noopener">WhatsApp</a>
+            <a href="https://wa.me/351968573903?text=Ol%C3%A1!%20Vim%20do%20website" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer external">WhatsApp</a>
             <a href="tel:+351968573903" class="btn btn-ghost">Ligar agora</a>
           </div>
 
@@ -121,18 +126,18 @@
           </ul>
         </div>
 
-        <form class="contact-form fade-up delay-1" id="contactForm" novalidate>
+        <form class="contact-form fade-up delay-1" id="contactForm" novalidate autocomplete="on">
           <div class="field">
             <label for="f-nome">Nome</label>
-            <input id="f-nome" name="nome" type="text" required placeholder="O seu nome" />
+            <input id="f-nome" name="nome" type="text" required maxlength="80" autocomplete="name" placeholder="O seu nome" />
           </div>
           <div class="field">
             <label for="f-email">Email</label>
-            <input id="f-email" name="email" type="email" required placeholder="email@exemplo.pt" />
+            <input id="f-email" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="email@exemplo.pt" />
           </div>
           <div class="field">
             <label for="f-tel">Telefone (opcional)</label>
-            <input id="f-tel" name="telefone" type="tel" placeholder="9XX XXX XXX" />
+            <input id="f-tel" name="telefone" type="tel" maxlength="20" autocomplete="tel" inputmode="tel" pattern="[0-9 +()-]{6,20}" placeholder="9XX XXX XXX" />
           </div>
           <div class="field">
             <label for="f-area">Área de interesse</label>
@@ -151,8 +156,15 @@
           </div>
           <div class="field">
             <label for="f-msg">Mensagem</label>
-            <textarea id="f-msg" name="mensagem" required placeholder="Conte-nos um pouco sobre o seu projeto, equipa ou momento atual…"></textarea>
+            <textarea id="f-msg" name="mensagem" required maxlength="1500" placeholder="Conte-nos um pouco sobre o seu projeto, equipa ou momento atual…"></textarea>
           </div>
+
+          <!-- Honeypot: campo invisível para humanos, irresistível para bots. NÃO PREENCHER. -->
+          <div class="hp" aria-hidden="true">
+            <label for="f-website">Não preencher</label>
+            <input id="f-website" name="website" type="text" tabindex="-1" autocomplete="off" />
+          </div>
+
           <button type="submit" class="btn btn-yellow btn-arrow" style="width:100%;">Enviar mensagem</button>
           <p class="form-msg" aria-live="polite"></p>
           <p style="font-size:0.82rem; color:var(--color-text-mute); margin-top:0.8rem;">
