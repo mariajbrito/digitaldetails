@@ -303,42 +303,42 @@ p { margin: 0 0 1em; }
    ========================================================= */
 .hero {
   position: relative;
-  padding: 9rem 0 5rem;
+  padding: 10rem 0 6rem;
   overflow: hidden;
 }
 .hero::before {
   content: '';
   position: absolute;
-  top: -10%; right: -8%;
-  width: 520px; height: 520px;
+  top: -12%; right: -10%;
+  width: 580px; height: 580px;
   background: var(--color-yellow);
   border-radius: 50%;
-  filter: blur(120px);
-  opacity: 0.35;
+  filter: blur(140px);
+  opacity: 0.22;
   z-index: -1;
 }
 .hero::after {
   content: '';
   position: absolute;
-  bottom: -20%; left: -10%;
-  width: 400px; height: 400px;
+  bottom: -22%; left: -12%;
+  width: 460px; height: 460px;
   background: var(--color-yellow-soft);
   border-radius: 50%;
-  filter: blur(140px);
-  opacity: 0.55;
+  filter: blur(160px);
+  opacity: 0.45;
   z-index: -1;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
-  gap: 4rem;
+  gap: 5rem;
 }
 
 .hero-title {
   font-size: var(--fs-hero);
-  margin: 1.4rem 0 1.5rem;
+  margin: 1.6rem 0 1.6rem;
   letter-spacing: -0.035em;
 }
 .hero-title em {
@@ -354,10 +354,11 @@ p { margin: 0 0 1em; }
   font-size: 1.18rem;
   color: var(--color-text-soft);
   max-width: 540px;
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.4rem;
+  line-height: 1.7;
 }
 
-.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.5rem; }
+.hero-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 2.6rem; }
 
 .hero-trust {
   display: flex;
@@ -366,40 +367,82 @@ p { margin: 0 0 1em; }
   padding-top: 1.8rem;
   border-top: 1px solid var(--color-line);
 }
-.hero-trust-text { font-size: 0.88rem; color: var(--color-text-soft); }
+.hero-trust-text { font-size: 0.9rem; color: var(--color-text-soft); }
 .hero-stars { color: var(--color-yellow-deep); letter-spacing: 0.1em; }
 
+/* Hero visual — círculo premium com a fotografia humana ao centro */
 .hero-visual {
   position: relative;
-  aspect-ratio: 4/5;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(135deg, #fffbe6 0%, #fff8d6 100%);
-  border: 1px solid var(--color-line);
-  overflow: hidden;
-  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 460px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
 }
-.hero-visual::before {
+.hero-photo {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #fff6b3 0%, #fff8d6 50%, #f3f1ea 100%);
+  box-shadow:
+    0 30px 80px rgba(13, 13, 13, 0.10),
+    0 0 0 1px var(--color-line);
+}
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+.hero-photo::after {
   content: '';
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(circle at 80% 20%, var(--color-yellow) 0%, transparent 35%),
-    radial-gradient(circle at 20% 80%, rgba(255, 214, 0, 0.25) 0%, transparent 40%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 8px rgba(255, 255, 255, 0.7);
+  pointer-events: none;
 }
-.hero-visual-card {
+.hero-photo-ring {
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 214, 0, 0.55);
+  pointer-events: none;
+  animation: heroRing 28s linear infinite;
+}
+@keyframes heroRing {
+  to { transform: rotate(360deg); }
+}
+
+/* Pequenas pílulas com os valores: Conexão · Transformação · Resultados */
+.hero-chip {
   position: absolute;
   background: #fff;
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-  padding: 1rem 1.2rem;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-pill);
+  padding: 0.65rem 1.1rem;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.92rem;
+  color: var(--color-ink);
+  box-shadow: var(--shadow-md);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
 }
-.hero-card-1 { top: 12%; left: 8%; }
-.hero-card-2 { bottom: 18%; right: 6%; }
-.hero-card-3 { top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 1.4rem 1.6rem; font-size: 1.1rem; }
-.hero-card-small { font-size: 0.78rem; color: var(--color-text-mute); font-weight: 500; margin-top: 0.2rem; }
+.hero-chip::before {
+  content: '';
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--color-yellow);
+  box-shadow: 0 0 0 3px var(--color-yellow-glow);
+}
+.hero-chip-1 { top: 6%; left: -10%; }
+.hero-chip-2 { top: 48%; right: -14%; }
+.hero-chip-3 { bottom: 4%; left: 8%; }
 
 /* =========================================================
    BARRA DE LOGOS / TRUST
@@ -1055,7 +1098,10 @@ p { margin: 0 0 1em; }
   .hero-grid, .page-hero-inner, .contact-grid, .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
-  .hero-visual { max-width: 480px; margin: 0 auto; }
+  .hero-visual { max-width: 360px; margin: 0 auto; }
+  .hero-chip-1 { top: 2%; left: -4%; }
+  .hero-chip-2 { top: 46%; right: -6%; }
+  .hero-chip-3 { bottom: 0%; left: 10%; }
   .nav-menu {
     position: fixed;
     top: 0; right: 0;
