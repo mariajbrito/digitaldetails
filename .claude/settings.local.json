@@ -3,7 +3,8 @@
     "allow": [
       "WebFetch(domain:digitaldetails.pt)",
       "Bash(start index.html)",
-      "Bash(ls c:\\\\\\\\Users\\\\\\\\maria\\\\\\\\Documents\\\\\\\\digitaldetails\\\\\\\\)"
+      "Bash(ls c:\\\\\\\\Users\\\\\\\\maria\\\\\\\\Documents\\\\\\\\digitaldetails\\\\\\\\)",
+      "Bash(git checkout *)"
     ]
   }
 }
