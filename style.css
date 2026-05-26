@@ -1172,109 +1172,186 @@ p { margin: 0 0 1em; }
 .form-msg.err { color: var(--color-danger); margin-top: 0.6rem; font-weight: 600; }
 
 /* =========================================================
-   SHOWCASE — Projetos reais (premium)
+   VIDEO SHOWCASE — Projetos reais (premium, pronto p/ vídeo)
    ========================================================= */
-.showcase-grid {
+.showcase-section .section-head { max-width: 760px; margin-inline: auto; text-align: center; }
+.showcase-section .section-head p { color: var(--color-text-soft); }
+
+.video-showcase {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.6rem;
-  margin-top: 2.4rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(1.8rem, 3vw, 3rem);
+  margin-top: clamp(2.8rem, 5vw, 4rem);
 }
-.showcase-card {
-  position: relative;
+
+.video-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-line);
+  gap: 1.4rem;
+}
+
+/* Moldura do vídeo / placeholder */
+.video-frame {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
   border-radius: var(--radius-lg);
   overflow: hidden;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-line);
+  box-shadow: var(--shadow-sm);
+  isolation: isolate;
   transition: transform var(--t-mid) var(--ease),
               box-shadow var(--t-mid) var(--ease),
               border-color var(--t-mid) var(--ease);
 }
-.showcase-card:hover {
+.video-frame:hover,
+.video-frame:focus-visible {
   transform: translateY(-4px);
   box-shadow: var(--shadow-md);
   border-color: var(--color-yellow);
+  outline: none;
 }
-.showcase-media {
-  position: relative;
-  aspect-ratio: 16 / 10;
-  background:
-    radial-gradient(120% 80% at 50% 0%, rgba(255, 214, 0, 0.18), transparent 60%),
-    linear-gradient(180deg, #fafaf7 0%, #f0f0eb 100%);
-  border-bottom: 1px solid var(--color-line);
-  overflow: hidden;
+
+/* Vídeo (quando inserido depois) */
+.video-media {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Placeholder elegante temporário (substituível por <video>) */
+.video-placeholder {
+  position: absolute;
+  inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  background:
+    radial-gradient(120% 80% at 50% 0%, rgba(255, 214, 0, 0.22), transparent 65%),
+    linear-gradient(180deg, #fafaf7 0%, #efefe9 100%);
 }
-.showcase-media::before {
+.video-placeholder::before {
   content: "";
   position: absolute;
-  inset: 14px;
+  inset: 16px;
   border: 1px dashed rgba(13, 13, 13, 0.08);
-  border-radius: calc(var(--radius-lg) - 10px);
+  border-radius: calc(var(--radius-lg) - 12px);
   pointer-events: none;
 }
-.showcase-placeholder {
+.video-domain {
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.95rem;
-  letter-spacing: 0.04em;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
   color: var(--color-text-mute);
   background: var(--color-bg);
-  padding: 0.4rem 0.9rem;
+  padding: 0.45rem 1rem;
   border-radius: var(--radius-pill);
   border: 1px solid var(--color-line);
   box-shadow: var(--shadow-sm);
 }
-.showcase-body {
-  padding: 1.6rem 1.8rem 1.8rem;
+
+/* Ícone de play discreto */
+.video-play {
+  position: absolute;
+  right: 18px;
+  bottom: 18px;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 13, 13, 0.82);
+  color: #fff;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform var(--t-mid) var(--ease),
+              background var(--t-mid) var(--ease),
+              color var(--t-mid) var(--ease);
+  z-index: 2;
+}
+.video-play svg { transform: translateX(2px); }
+.video-frame:hover .video-play,
+.video-frame:focus-visible .video-play {
+  transform: scale(1.06);
+  background: var(--color-yellow);
+  color: var(--color-ink);
+}
+
+/* Bloco de texto associado */
+.video-info {
+  padding: 0 0.2rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-.showcase-tag {
+.video-tag {
   font-family: var(--font-display);
   font-size: 0.72rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   color: var(--color-text-mute);
-  margin-bottom: 0.2rem;
 }
-.showcase-body h3 {
-  margin: 0 0 0.3rem;
-  font-size: 1.25rem;
+.video-info h3 {
+  margin: 0;
+  font-size: 1.35rem;
+  letter-spacing: -0.01em;
 }
-.showcase-body p {
-  margin: 0 0 0.9rem;
+.video-info p {
+  margin: 0;
   color: var(--color-text-soft);
-  font-size: 0.98rem;
-  line-height: 1.55;
+  font-size: 1rem;
+  line-height: 1.6;
+  max-width: 48ch;
 }
-.showcase-card .card-link {
-  margin-top: auto;
+.video-link {
+  margin-top: 0.4rem;
+  align-self: flex-start;
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 0.92rem;
   color: var(--color-ink);
   letter-spacing: 0.02em;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color var(--t-mid) var(--ease),
+              color var(--t-mid) var(--ease);
 }
-.showcase-card .card-link::after {
-  content: "→";
+.video-link::after {
+  content: " →";
+  display: inline-block;
   transition: transform var(--t-mid) var(--ease);
 }
-.showcase-card:hover .card-link::after { transform: translateX(4px); }
-.showcase-foot {
+.video-link:hover,
+.video-link:focus-visible {
+  border-bottom-color: var(--color-ink);
+  outline: none;
+}
+.video-link:hover::after,
+.video-link:focus-visible::after { transform: translateX(4px); }
+
+.video-foot {
   text-align: center;
-  margin-top: 2rem;
-  font-size: 0.92rem;
+  margin-top: clamp(2.4rem, 4vw, 3.4rem);
+  font-size: 0.95rem;
   color: var(--color-text-mute);
   font-style: italic;
+}
+
+@media (max-width: 860px) {
+  .video-showcase { grid-template-columns: 1fr; gap: 2.4rem; }
+  .video-play { width: 46px; height: 46px; right: 14px; bottom: 14px; }
+  .video-info h3 { font-size: 1.2rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .video-frame, .video-play, .video-link, .video-link::after { transition: none; }
+  .video-frame:hover, .video-frame:focus-visible { transform: none; }
 }
 
