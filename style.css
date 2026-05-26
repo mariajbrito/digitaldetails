@@ -1221,6 +1221,8 @@ p { margin: 0 0 1em; }
   height: 100%;
   object-fit: cover;
   display: block;
+  background: #0d0d0d;
+  pointer-events: none;
 }
 
 /* Placeholder elegante temporário (substituível por <video>) */

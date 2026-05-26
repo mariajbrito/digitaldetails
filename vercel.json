@@ -28,7 +28,7 @@
         },
         {
           "key": "Permissions-Policy",
-          "value": "accelerometer=(), ambient-light-sensor=(), autoplay=(), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=()"
+          "value": "accelerometer=(), ambient-light-sensor=(), autoplay=(self), battery=(), camera=(), display-capture=(), document-domain=(), encrypted-media=(), execution-while-not-rendered=(), execution-while-out-of-viewport=(), fullscreen=(self), gamepad=(), geolocation=(), gyroscope=(), hid=(), idle-detection=(), interest-cohort=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), navigation-override=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), serial=(), sync-xhr=(), usb=(), web-share=(self), xr-spatial-tracking=()"
         },
         {
           "key": "Cross-Origin-Opener-Policy",
@@ -53,7 +53,7 @@
       ]
     },
     {
-      "source": "/(.*\\.(?:css|js|woff2|woff|ttf|eot|otf|png|jpg|jpeg|gif|svg|webp|avif|ico))",
+      "source": "/(.*\\.(?:css|js|woff2|woff|ttf|eot|otf|png|jpg|jpeg|gif|svg|webp|avif|ico|webm|mp4|mov))",
       "headers": [
         {
           "key": "Cache-Control",
