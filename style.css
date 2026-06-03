@@ -975,6 +975,14 @@ p { margin: 0 0 1em; }
   background: radial-gradient(circle at bottom right, var(--color-yellow) 0%, transparent 70%);
   opacity: 0.6;
 }
+.post-card-cover img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
 .post-card-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
 .post-card-cat {
   display: inline-block;
@@ -1075,6 +1083,15 @@ p { margin: 0 0 1em; }
     radial-gradient(circle at 85% 15%, var(--color-yellow) 0%, transparent 40%),
     radial-gradient(circle at 15% 85%, rgba(255, 214, 0, 0.4) 0%, transparent 45%);
 }
+.article-cover img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.article-cover.has-image::after { display: none; }
 
 .related-posts { margin-top: 4rem; }
 .related-posts h3 { text-align: center; margin-bottom: 2rem; }
