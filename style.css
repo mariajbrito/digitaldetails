@@ -1177,183 +1177,189 @@ p { margin: 0 0 1em; }
 .showcase-section .section-head { max-width: 760px; margin-inline: auto; text-align: center; }
 .showcase-section .section-head p { color: var(--color-text-soft); }
 
-.video-showcase {
+/* =========================================================
+   Parede de reels — vídeos reais captados ao telemóvel,
+   apresentados em mockups verticais, estética lifestyle.
+   ========================================================= */
+.reel-wall {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: clamp(1.8rem, 3vw, 3rem);
-  margin-top: clamp(2.8rem, 5vw, 4rem);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1.6rem, 3vw, 2.8rem);
+  margin-top: clamp(3rem, 5vw, 4.5rem);
+  align-items: start;
 }
 
-.video-card {
+.reel-card {
   display: flex;
   flex-direction: column;
-  gap: 1.4rem;
+  gap: 1.5rem;
 }
 
-/* Moldura do vídeo / placeholder */
-.video-frame {
+/* Mockup de telemóvel */
+.reel-phone {
+  display: block;
+  text-decoration: none;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.reel-shell {
   position: relative;
   display: block;
-  aspect-ratio: 16 / 10;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--color-bg-card);
-  border: 1px solid var(--color-line);
-  box-shadow: var(--shadow-sm);
+  width: 100%;
+  max-width: 280px;
+  margin-inline: auto;
+  aspect-ratio: 9 / 19.5;
+  padding: 7px;
+  border-radius: 2.4rem;
+  background: linear-gradient(155deg, #1c1c1c 0%, #060606 100%);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.08) inset,
+    var(--shadow-lg);
   isolation: isolate;
   transition: transform var(--t-mid) var(--ease),
-              box-shadow var(--t-mid) var(--ease),
-              border-color var(--t-mid) var(--ease);
+              box-shadow var(--t-mid) var(--ease);
 }
-.video-frame:hover,
-.video-frame:focus-visible {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--color-yellow);
-  outline: none;
+.reel-phone:hover .reel-shell,
+.reel-phone:focus-visible .reel-shell {
+  transform: translateY(-6px);
+  box-shadow:
+    0 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 40px 90px rgba(13, 13, 13, 0.16);
 }
 
-/* Vídeo (quando inserido depois) */
-.video-media {
+/* Pílula superior (altifalante/câmara) */
+.reel-bar {
   position: absolute;
-  inset: 0;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* Ecrã / vídeo reel */
+.reel-video {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  display: block;
+  border-radius: 1.95rem;
   background: #0d0d0d;
   pointer-events: none;
 }
 
-/* Placeholder elegante temporário (substituível por <video>) */
-.video-placeholder {
+/* Véu subtil para integrar o vídeo na moldura (sem ar publicitário) */
+.reel-veil {
   position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background:
-    radial-gradient(120% 80% at 50% 0%, rgba(255, 214, 0, 0.22), transparent 65%),
-    linear-gradient(180deg, #fafaf7 0%, #efefe9 100%);
-}
-.video-placeholder::before {
-  content: "";
-  position: absolute;
-  inset: 16px;
-  border: 1px dashed rgba(13, 13, 13, 0.08);
-  border-radius: calc(var(--radius-lg) - 12px);
+  inset: 7px;
+  border-radius: 1.95rem;
   pointer-events: none;
-}
-.video-domain {
-  font-family: var(--font-display);
-  font-weight: 600;
-  font-size: 0.85rem;
-  letter-spacing: 0.06em;
-  color: var(--color-text-mute);
-  background: var(--color-bg);
-  padding: 0.45rem 1rem;
-  border-radius: var(--radius-pill);
-  border: 1px solid var(--color-line);
-  box-shadow: var(--shadow-sm);
-}
-
-/* Ícone de play discreto */
-.video-play {
-  position: absolute;
-  right: 18px;
-  bottom: 18px;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(13, 13, 13, 0.82);
-  color: #fff;
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  transition: transform var(--t-mid) var(--ease),
-              background var(--t-mid) var(--ease),
-              color var(--t-mid) var(--ease);
   z-index: 2;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
+  background:
+    linear-gradient(180deg, rgba(13, 13, 13, 0.18) 0%, transparent 18% 82%, rgba(13, 13, 13, 0.22) 100%);
+  opacity: 0.9;
+  transition: opacity var(--t-mid) var(--ease);
 }
-.video-play svg { transform: translateX(2px); }
-.video-frame:hover .video-play,
-.video-frame:focus-visible .video-play {
-  transform: scale(1.06);
-  background: var(--color-yellow);
-  color: var(--color-ink);
-}
+.reel-phone:hover .reel-veil,
+.reel-phone:focus-visible .reel-veil { opacity: 0.55; }
 
 /* Bloco de texto associado */
-.video-info {
-  padding: 0 0.2rem;
+.reel-info {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  text-align: center;
+  padding: 0 0.4rem;
 }
-.video-tag {
+.reel-tag {
   font-family: var(--font-display);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.18em;
   color: var(--color-text-mute);
 }
-.video-info h3 {
+.reel-info h3 {
   margin: 0;
-  font-size: 1.35rem;
+  font-size: 1.18rem;
   letter-spacing: -0.01em;
 }
-.video-info p {
-  margin: 0;
+.reel-info p {
+  margin: 0 auto;
   color: var(--color-text-soft);
-  font-size: 1rem;
+  font-size: 0.92rem;
   line-height: 1.6;
-  max-width: 48ch;
+  max-width: 30ch;
 }
-.video-link {
-  margin-top: 0.4rem;
-  align-self: flex-start;
+.reel-link {
+  margin-top: 0.35rem;
+  align-self: center;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   color: var(--color-ink);
   letter-spacing: 0.02em;
   text-decoration: none;
   border-bottom: 1px solid transparent;
-  transition: border-color var(--t-mid) var(--ease),
-              color var(--t-mid) var(--ease);
+  transition: border-color var(--t-mid) var(--ease);
 }
-.video-link::after {
+.reel-link::after {
   content: " →";
   display: inline-block;
   transition: transform var(--t-mid) var(--ease);
 }
-.video-link:hover,
-.video-link:focus-visible {
+.reel-link:hover,
+.reel-link:focus-visible {
   border-bottom-color: var(--color-ink);
   outline: none;
 }
-.video-link:hover::after,
-.video-link:focus-visible::after { transform: translateX(4px); }
+.reel-link:hover::after,
+.reel-link:focus-visible::after { transform: translateX(4px); }
 
 .video-foot {
   text-align: center;
-  margin-top: clamp(2.4rem, 4vw, 3.4rem);
+  margin-top: clamp(2.8rem, 4.5vw, 3.8rem);
   font-size: 0.95rem;
   color: var(--color-text-mute);
   font-style: italic;
 }
 
-@media (max-width: 860px) {
-  .video-showcase { grid-template-columns: 1fr; gap: 2.4rem; }
-  .video-play { width: 46px; height: 46px; right: 14px; bottom: 14px; }
-  .video-info h3 { font-size: 1.2rem; }
+/* Tablet — duas colunas */
+@media (max-width: 1080px) {
+  .reel-wall { grid-template-columns: repeat(2, 1fr); gap: clamp(2rem, 4vw, 3rem); }
+  .reel-shell { max-width: 260px; }
+}
+
+/* Mobile — carrossel horizontal estilo reels (swipe) */
+@media (max-width: 620px) {
+  .reel-wall {
+    display: flex;
+    grid-template-columns: none;
+    gap: 1.2rem;
+    margin-inline: -1.5rem;
+    padding: 0.5rem 1.5rem 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .reel-wall::-webkit-scrollbar { display: none; }
+  .reel-card {
+    flex: 0 0 74%;
+    scroll-snap-align: center;
+  }
+  .reel-shell { max-width: 240px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .video-frame, .video-play, .video-link, .video-link::after { transition: none; }
-  .video-frame:hover, .video-frame:focus-visible { transform: none; }
+  .reel-shell, .reel-veil, .reel-link, .reel-link::after { transition: none; }
+  .reel-phone:hover .reel-shell,
+  .reel-phone:focus-visible .reel-shell { transform: none; }
 }
 
