@@ -41,7 +41,10 @@
       "Bash(node -e \"JSON.parse\\(require\\('fs'\\).readFileSync\\('vercel.json','utf8'\\)\\); console.log\\('JSON valido'\\)\")",
       "Bash(git commit -m '@ *)",
       "PowerShell(git push origin main 2>&1)",
-      "Bash(curl -sIL \"https://www.digitaldetails.pt/almafluxo.webm\")"
+      "Bash(curl -sIL \"https://www.digitaldetails.pt/almafluxo.webm\")",
+      "Bash(git commit *)",
+      "Bash(python -c \"from PIL import Image; im=Image.open\\('plantandosonhos.jpeg'\\); print\\(im.size\\)\")",
+      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; $i=[System.Drawing.Image]::FromFile\\('\\\\''C:\\\\Users\\\\maria\\\\Documents\\\\digitaldetails\\\\plantandosonhos.jpeg'\\\\''\\); \"$\\($i.Width\\)x$\\($i.Height\\)\"')"
     ],
     "additionalDirectories": [
       "c:\\c\\Users\\maria\\Documents\\digitaldetails\\servicos"
