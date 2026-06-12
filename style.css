@@ -1485,6 +1485,16 @@ p { margin: 0 0 1em; }
   z-index: 1;
 }
 
+.ig-post img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  pointer-events: none;
+  transition: transform var(--t-mid) var(--ease);
+}
+.ig-post:hover img { transform: scale(1.04); }
+
 /* Scroll navigation */
 .ig-nav-row {
   display: flex;
