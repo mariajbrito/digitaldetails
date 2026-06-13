@@ -1387,20 +1387,24 @@ p { margin: 0 0 1em; }
    INSTAGRAM PORTFOLIO FEED — gestão de redes sociais
    ========================================================= */
 
+/* Impede que o scroll horizontal "vaze" para a página toda */
+#portfolio-social {
+  overflow-x: clip;
+}
+
 .ig-scroll-outer {
   overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  scroll-snap-type: x mandatory;
-  padding-bottom: 1rem;
+  scroll-snap-type: x proximity;
+  scroll-padding-left: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+  padding: 0.5rem 0 1.8rem;
 }
 .ig-scroll-outer::-webkit-scrollbar { display: none; }
 
 .ig-cards-track {
   display: flex;
   gap: 1.4rem;
-  padding: 1rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 1.5rem;
+  padding: 0 max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem)) 0;
   width: max-content;
 }
 
@@ -1416,6 +1420,11 @@ p { margin: 0 0 1em; }
   transition: box-shadow var(--t-mid) var(--ease), transform var(--t-mid) var(--ease);
 }
 .ig-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); }
+
+/* Ecrãs muito pequenos (≤360px) — cards ligeiramente mais estreitos */
+@media (max-width: 360px) {
+  .ig-card { width: 248px; }
+}
 
 .ig-card-top {
   display: flex;
