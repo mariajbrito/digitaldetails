@@ -1158,6 +1158,12 @@ p { margin: 0 0 1em; }
     display: none;
   }
   .nav-item-drop.open .nav-drop { display: grid; }
+  /* No menu mobile o dropdown é de 1 coluna; sem isto o `span 2` do h4
+     cria uma 2ª coluna implícita e os itens transbordam para fora do painel. */
+  .nav-drop h4 { grid-column: auto; }
+  /* O estado :hover do desktop (mais específico) reativa o translateX(-50%) e
+     desloca o dropdown para fora do painel ao tocar; anular no mobile. */
+  .nav-item-drop:hover .nav-drop { transform: none; left: auto; }
   .hamburger { display: flex; }
 }
 
