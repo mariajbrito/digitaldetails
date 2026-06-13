@@ -46,3 +46,6 @@ yarn-debug.log*
 *.tmp
 *.old
 ~$*
+
+# Imagens-fonte das redes sociais (já copiadas para /social)
+/Redes Sociais/
