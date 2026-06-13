@@ -1126,6 +1126,7 @@ p { margin: 0 0 1em; }
     position: fixed;
     top: 0; right: 0;
     height: 100vh;
+    height: 100dvh;
     width: min(360px, 88vw);
     background: #ffffff;
     flex-direction: column;
@@ -1135,6 +1136,9 @@ p { margin: 0 0 1em; }
     transform: translateX(100%);
     transition: transform var(--t-mid) var(--ease);
     box-shadow: -20px 0 60px rgba(0, 0, 0, 0.08);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .nav-menu.open { transform: translateX(0); }
   .nav-menu li { width: 100%; }
