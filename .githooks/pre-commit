@@ -1,0 +1,42 @@
+#!/bin/sh
+# =====================================================================
+# CACHE-BUSTING AUTOMÁTICO
+# ---------------------------------------------------------------------
+# Injeta um hash do conteúdo de style.css e script.js em TODOS os
+# <link>/<script> dos ficheiros HTML (ex: style.css?v=a1b2c3d4).
+#
+# Porquê: o style.css/script.js têm sempre o mesmo nome. Browsers de
+# telemóvel e os browsers in-app (Instagram, Facebook, WhatsApp) servem
+# versões antigas da cache mesmo com headers must-revalidate. Ao mudar o
+# ?v= sempre que o conteúdo muda, o URL passa a ser novo e o browser é
+# obrigado a buscar a versão atual.
+#
+# Corre sozinho a cada `git commit`. O hash só muda quando o CSS/JS muda,
+# por isso a cache continua eficiente nas visitas seguintes.
+# Ativado via: git config core.hooksPath .githooks
+# =====================================================================
+set -e
+
+ROOT="$(git rev-parse --show-toplevel)"
+cd "$ROOT"
+
+[ -f style.css ] || exit 0
+[ -f script.js ] || exit 0
+
+CSS_HASH=$(md5sum style.css | cut -c1-8)
+JS_HASH=$(md5sum script.js | cut -c1-8)
+
+changed=""
+for f in $(find . -name "*.html" -not -path "./.git/*"); do
+  sed -E -i \
+    -e "s#(style\.css)(\?v=[^\"']*)?#\1?v=${CSS_HASH}#g" \
+    -e "s#(script\.js)(\?v=[^\"']*)?#\1?v=${JS_HASH}#g" \
+    "$f"
+  git add "$f"
+  case "$(git diff --cached --name-only -- "$f")" in
+    *"$f"*) changed="$changed ${f#./}" ;;
+  esac
+done
+
+[ -n "$changed" ] && echo "cache-bust: css=${CSS_HASH} js=${JS_HASH}"
+exit 0

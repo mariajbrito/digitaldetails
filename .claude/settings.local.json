@@ -44,7 +44,22 @@
       "Bash(curl -sIL \"https://www.digitaldetails.pt/almafluxo.webm\")",
       "Bash(git commit *)",
       "Bash(python -c \"from PIL import Image; im=Image.open\\('plantandosonhos.jpeg'\\); print\\(im.size\\)\")",
-      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; $i=[System.Drawing.Image]::FromFile\\('\\\\''C:\\\\Users\\\\maria\\\\Documents\\\\digitaldetails\\\\plantandosonhos.jpeg'\\\\''\\); \"$\\($i.Width\\)x$\\($i.Height\\)\"')"
+      "Bash(powershell -NoProfile -Command 'Add-Type -AssemblyName System.Drawing; $i=[System.Drawing.Image]::FromFile\\('\\\\''C:\\\\Users\\\\maria\\\\Documents\\\\digitaldetails\\\\plantandosonhos.jpeg'\\\\''\\); \"$\\($i.Width\\)x$\\($i.Height\\)\"')",
+      "Bash(git config *)",
+      "Bash(curl -s \"https://digitaldetails.pt/style.css\")",
+      "Bash(curl -sI \"https://digitaldetails.pt/style.css\")",
+      "Bash(xxd)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code} %{content_type}\\\\n\" \"https://digitaldetails.pt/style.css\")",
+      "Bash(curl -s \"https://digitaldetails.pt/style.css?v=$\\(date +%s\\)\")",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{content_type} %{size_download} bytes\\\\n\" \"https://www.digitaldetails.pt/style.css\")",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{content_type} %{size_download}b\\\\n\" \"https://www.digitaldetails.pt/social/almafluxo/1.webp\")",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{content_type} %{size_download}b\\\\n\" \"https://www.digitaldetails.pt/social/fatimacordeiro/1.webp\")",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{content_type} %{size_download}b\\\\n\" \"https://www.digitaldetails.pt/social/evoluimos/9.webp\")",
+      "Bash(curl -sL -o /dev/null -w \"%{http_code} %{size_download}b\\\\n\" \"https://www.digitaldetails.pt/servicos/gestao-redes-sociais\")",
+      "Bash(curl -sI \"https://digitaldetails.pt/servicos/gestao-redes-sociais\")",
+      "Bash(curl -sI \"https://digitaldetails.pt/\")",
+      "Bash(curl -s -o /dev/null -w \"redirects=%{num_redirects} final_url=%{url_effective} code=%{http_code}\\\\n\" -L \"https://digitaldetails.pt/style.css\")",
+      "Bash(curl -sL \"https://www.digitaldetails.pt/servicos/gestao-redes-sociais\")"
     ],
     "additionalDirectories": [
       "c:\\c\\Users\\maria\\Documents\\digitaldetails\\servicos"
